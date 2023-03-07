@@ -1,0 +1,14 @@
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 100%;
+}
+
+#container div {
+    border: 5px solid black;
+    aspect-ratio: 1;
+}
+
+.red {
+    background-color: black;
+}
