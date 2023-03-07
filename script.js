@@ -14,6 +14,8 @@ function createSquare () {
         container.appendChild(div);
         div.classList.add('div');
     };
+    const container = document.querySelector('#container');
+    container.setAttribute('style', `grid-template-rows: repeat(${size}, auto); grid-template-columns: repeat(${size}, auto)`);
 };
 
 function colorDivs() {
