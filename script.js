@@ -1,22 +1,50 @@
-let dimensions = prompt("Square Dimensions?");
+let size = 16;
 
-function createSquare () {
-    window.onload = function() {
-        for (let i = 0; i < dimensions; i++) {
-            const div = document.createElement('div');
-            const container = document.querySelector('#container');
-            container.appendChild(div);
-            div.classList.add('div');
-        };
-        const divs = document.querySelectorAll('.div');
-        for (let i = 0; i < divs.length; i++) {
-            divs[i].addEventListener('mouseover', () => {
-                divs[i].classList.add('red');
-            });
-        };
-    }
+window.onload = function() {
+    createSquare();
+    colorDivs();
+    reset();
+    changeDimensions();
 };
 
+function createSquare () {
+    for (let i = 0; i < (size * size); i++) {
+        const div = document.createElement('div');
+        const container = document.querySelector('#container');
+        container.appendChild(div);
+        div.classList.add('div');
+    };
+};
 
+function colorDivs() {
+    const divs = document.querySelectorAll('.div');
+    for (let i = 0; i < divs.length; i++) {
+        divs[i].addEventListener('mouseover', () => {
+            divs[i].classList.add('black');
+        });
+    };
+}
+
+function reset() {
+    const reset = document.querySelector('#reset');
+    reset.addEventListener('click', () => {
+        const divs = document.querySelectorAll('.div');
+        for (let i = 0; i < divs.length; i++) {
+                divs[i].classList.remove('black');
+        };
+    })
+}
  
-createSquare();
+function changeDimensions() {
+    const dimensions = document.querySelector('#dimensions');
+    dimensions.addEventListener('click', () => { 
+        do {
+            size = prompt("Dimensions?");
+        }
+        while (size > 100 || size < 1);
+        const container = document.querySelector('#container');
+        container.textContent = '';
+        createSquare();
+        colorDivs();
+    });
+}
