@@ -22,7 +22,7 @@ function colorDivs() {
     const divs = document.querySelectorAll('.div');
     for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener('mouseover', () => {
-            divs[i].classList.add('black');
+            divs[i].style.cssText = "background-color: black;"
         });
     };
 }
@@ -32,7 +32,7 @@ function reset() {
     reset.addEventListener('click', () => {
         const divs = document.querySelectorAll('.div');
         for (let i = 0; i < divs.length; i++) {
-                divs[i].classList.remove('black');
+                divs[i].style.cssText = "background-color: white;"
         };
     })
 }
