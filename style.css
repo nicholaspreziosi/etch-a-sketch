@@ -21,6 +21,10 @@
     color: white;
 }
 
+.btn {
+    background-color: white;
+}
+
 #buttons {
     display: flex;
     justify-content: space-between;
@@ -29,10 +33,9 @@
 }
 
 #buttons button {
-    font-size: 16pt;
+    font-size: 14pt;
     font-family: "Lucida Handwriting", cursive;
-    background-color: white;
-    padding: 12px 24px;
+    padding: 12px 16px;
     border: none;
     border-radius: 20pt;
     cursor: pointer;
@@ -59,4 +62,16 @@ body {
     display: grid;
     margin: auto;
     filter: drop-shadow(10px 10px 20px black);
+}
+
+
+
+#greyscale.active {
+    background-color: grey;
+    color: white;
+}
+
+#colorpicker {
+    z-index: 1;
+    position: relative;
 }
