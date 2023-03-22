@@ -5,8 +5,9 @@ window.onload = function() {
     colorDivs();
     reset();
     changeDimensions();
+    colorColorPickerButton();
+    updateColorPickerButton();
     colorRandomButton();
-    colorPicker();
     toggleButtons();
 };
 
@@ -26,8 +27,8 @@ function colorDivs() {
     for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener('mouseover', () => {
             if (document.querySelector('#colorchoice').classList.contains('active')) {
-                let color = colorPicker();
-                divs[i].style.cssText = `background-color: ${color};`;  
+                let color = document.querySelector('#colorpicker').value;
+                divs[i].style.cssText = `background-color: ${color};`;
             }
             else if (document.querySelector('#random').classList.contains('active')) {
                 let color = randomColor();
@@ -72,23 +73,30 @@ function randomColor () {
     return "rgb(" + r + "," + g + "," + b + ")";
 }
 
-function colorPicker () {
-    let colorpicker = document.querySelector('#colorpicker');
-    colorpicker.addEventListener('change', () => {
-        let color = colorpicker.value;
-        return color;
+
+function colorColorPickerButton () {
+    const colorchoice = document.querySelector('#colorchoice');
+    colorchoice.addEventListener('click', () => {
+        if (colorchoice.classList.contains('active')) {
+            colorchoice.style.cssText = 'background-color: white;';
+            return;
+        }
+        else if (!colorchoice.classList.contains('active')) {
+            let color = document.querySelector('#colorpicker').value;
+            colorchoice.style.cssText = `background-color: ${color};`;
+            colorchoice.style.color = 'white';
+            return;
+        }
     })
 }
 
-function colorColorPickerButton () {
-    const colorpicker = document.querySelector('#color');
-    random.addEventListener('click', () => {
-        if (colorpicker.classList.contains('active')) {
-            colorpicker.style.cssText = 'blue';
-            return;
-        }
-        else if (!colorpicker.classList.contains('active')) {
-            colorpicker.style.cssText = `background-color: white`;
+function updateColorPickerButton () {
+    let colorpicker = document.querySelector('#colorpicker');
+    colorpicker.addEventListener('input', () => {
+        const colorchoice = document.querySelector('#colorchoice');
+        if (colorchoice.classList.contains('active')) {
+            let color = document.querySelector('#colorpicker').value;
+            colorchoice.style.cssText = `background-color: ${color};`;
             return;
         }
     })
@@ -104,6 +112,7 @@ function colorRandomButton () {
         else if (!random.classList.contains('active')) {
             let color = randomColor();
             random.style.cssText = `background-color: ${color};`;
+            random.style.color = 'white'
             return;
         }
     })
