@@ -22,10 +22,13 @@ function colorDivs() {
     const divs = document.querySelectorAll('.div');
     for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener('mouseover', () => {
-            divs[i].style.cssText = "background-color: black;"
+            let color = randomColor();
+            divs[i].style.cssText = `background-color: ${color};`
         });
     };
 }
+
+
 
 function reset() {
     const reset = document.querySelector('#reset');
@@ -49,4 +52,16 @@ function changeDimensions() {
         createSquare();
         colorDivs();
     });
+}
+
+
+function randomColor () {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
+
+function black () {
+    return 'black';
 }

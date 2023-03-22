@@ -23,15 +23,13 @@
 
 #buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 250px;
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin: 18px;
 }
 
 #buttons button {
-    font-size: 20pt;
+    font-size: 16pt;
     font-family: "Lucida Handwriting", cursive;
     background-color: white;
     padding: 12px 24px;
