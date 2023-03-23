@@ -9,6 +9,7 @@ window.onload = function() {
     colorColorPickerButton();
     updateColorPickerButton();
     toggleButtons();
+    eraserCursor();
 };
 
 function createSquare () {
@@ -24,18 +25,14 @@ function createSquare () {
 
 function colorDivs() {
     const divs = document.querySelectorAll('.div');
-
     let mouseDown = false;
         for (let i = 0; i < divs.length; i++) {
             window.addEventListener('mousedown', () => {
                 mouseDown = true;
-                console.log(mouseDown);
             });
             window.addEventListener('mouseup', () => {
                 mouseDown = false;
-                console.log(mouseDown);
             });
-
             divs[i].addEventListener('mouseover', () => {
                 if (mouseDown) {
                     if (document.querySelector('#colorchoice').classList.contains('active')) {
@@ -88,7 +85,6 @@ function changeDimensions() {
         }
     });
 }
-
 
 function randomColor () {
     let r = Math.floor(Math.random() * 255);

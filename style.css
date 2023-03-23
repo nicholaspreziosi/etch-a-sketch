@@ -2,6 +2,7 @@
     height: 600px; 
     width: 600px;
     display: grid;
+    cursor: url("images/pencil.png"), auto;
 }
 
 #container div {
@@ -83,8 +84,7 @@ body {
 }
 
 #colorpicker {
-    z-index: 1;
-    position: relative;
+    cursor: pointer;
 }
 
 #colordiv {
@@ -107,4 +107,8 @@ body {
 
 #buttons input {
     border: 2px solid black;
+}
+
+#erase.active {
+    cursor: url("images/pencil.png"), auto;
 }
