@@ -1,13 +1,12 @@
 let size = 16;
+let colorValue = 255;
 
 window.onload = function() {
     createSquare();
     colorDivs();
     reset();
     changeDimensions();
-    colorColorPickerButton();
     updateColorPickerButton();
-    colorRandomButton();
     toggleButtons();
 };
 
@@ -35,7 +34,9 @@ function colorDivs() {
                 divs[i].style.cssText = `background-color: ${color};`;
             }
             else if (document.querySelector('#greyscale').classList.contains('active')){
-                divs[i].style.cssText = 'background-color: #808080;';
+                console.log(divs[i].style.backgroundColor);
+                let color = greyscale(colorValue);
+                divs[i].style.cssText = `background-color: ${color};`;
             }
         });
     };
@@ -73,22 +74,40 @@ function randomColor () {
     return "rgb(" + r + "," + g + "," + b + ")";
 }
 
-
-function colorColorPickerButton () {
-    const colorchoice = document.querySelector('#colorchoice');
-    colorchoice.addEventListener('click', () => {
-        if (colorchoice.classList.contains('active')) {
-            colorchoice.style.cssText = 'background-color: white;';
-            return;
-        }
-        else if (!colorchoice.classList.contains('active')) {
-            let color = document.querySelector('#colorpicker').value;
-            colorchoice.style.cssText = `background-color: ${color};`;
-            colorchoice.style.color = 'white';
-            return;
-        }
-    })
+function greyscale (colorValue) {
+    if (colorValue >= 0) {
+        colorValue = colorValue - 25.5;
+    }
+    return "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
 }
+
+function toggleButtons () {
+    const colors = document.querySelectorAll('.color');
+    for (let i = 0; i < colors.length; i++) {
+        colors[i].addEventListener('click', () => {
+            colors[i].classList.toggle('active');
+            colorRandomButton();
+            colorColorPickerButton();
+        });
+    };
+
+}
+
+//function colorColorPickerButton () {
+    //const colorchoice = document.querySelector('#colorchoice');
+    //colorchoice.addEventListener('click', () => {
+        //if (colorchoice.classList.contains('active')) {
+            //colorchoice.style.cssText = 'background-color: white;';
+          //  return;
+        //}
+       // else if (!colorchoice.classList.contains('active')) {
+            //let color = document.querySelector('#colorpicker').value;
+          //  colorchoice.style.backgroundColor = `${color};`;
+        //    colorchoice.style.color = 'white';
+      //      return;
+    //    }
+  //  })
+//}
 
 function updateColorPickerButton () {
     let colorpicker = document.querySelector('#colorpicker');
@@ -102,29 +121,28 @@ function updateColorPickerButton () {
     })
 }
 
+function colorColorPickerButton () {
+    const colorchoice = document.querySelector('#colorchoice');
+    if (colorchoice.classList.contains('active')) {
+        let color = document.querySelector('#colorpicker').value;
+        console.log(color);
+        colorchoice.style.cssText = `background-color: ${color};`;
+        colorchoice.style.color = 'white';
+    }
+    else if (!colorchoice.classList.contains('active')) {
+        colorchoice.style.cssText = 'white';
+    }
+}
+
+
 function colorRandomButton () {
     const random = document.querySelector('#random');
-    random.addEventListener('click', () => {
         if (random.classList.contains('active')) {
-            random.style.cssText = 'white';
-            return;
-        }
-        else if (!random.classList.contains('active')) {
             let color = randomColor();
             random.style.cssText = `background-color: ${color};`;
-            random.style.color = 'white'
-            return;
+            random.style.color = 'white';
         }
-    })
+        else if (!random.classList.contains('active')) {
+            random.style.cssText = 'white';
+        }
 }
-
-
-function toggleButtons () {
-    const colors = document.querySelectorAll('.color');
-    for (let i = 0; i < colors.length; i++) {
-        colors[i].addEventListener('click', () => {
-            colors[i].classList.toggle('active');     
-        });
-    };
-}
-
