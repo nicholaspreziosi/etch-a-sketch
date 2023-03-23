@@ -108,7 +108,3 @@ body {
 #buttons input {
     border: 2px solid black;
 }
-
-#erase.active {
-    cursor: url("images/pencil.png"), auto;
-}
