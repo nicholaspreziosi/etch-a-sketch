@@ -61,6 +61,7 @@ body {
     width: 600px;
     display: grid;
     margin: 18px auto;
+    border: 2px solid black;
 }
 
 #red {
@@ -71,11 +72,12 @@ body {
     display: grid;
     margin: auto;
     filter: drop-shadow(10px 10px 20px black);
+    border: 2px solid black;
 }
 
 
 
-#greyscale.active {
+#shading.active {
     background-color: grey;
     color: white;
 }

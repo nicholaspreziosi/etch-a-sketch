@@ -46,7 +46,7 @@ function colorDivs() {
                         let color = randomColor();
                         divs[i].style.cssText = `background-color: ${color};`;
                     }
-                    else if (document.querySelector('#greyscale').classList.contains('active')){
+                    else if (document.querySelector('#shading').classList.contains('active')){
                         let rgb = window.getComputedStyle(divs[i]).getPropertyValue("background-color");
                         rgb = rgb.replace(/[^\d,]/g, '').split(',');
                         let color = greyscale(rgb);
