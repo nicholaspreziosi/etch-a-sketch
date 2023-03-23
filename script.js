@@ -39,6 +39,9 @@ function colorDivs() {
                 let color = greyscale(colorValue);
                 divs[i].style.cssText = `background-color: ${color};`;
             }
+            else {
+                divs[i].style.cssText = 'background-color: white';
+            }
         });
     };
 }
@@ -94,6 +97,7 @@ function toggleButtons () {
             colors[i].classList.toggle('active');
             colorRandomButton();
             colorColorPickerButton();
+            colorEraseButton();
         });
     };
 
@@ -124,7 +128,6 @@ function colorColorPickerButton () {
     }
 }
 
-
 function colorRandomButton () {
     const random = document.querySelector('#random');
         if (random.classList.contains('active')) {
@@ -134,5 +137,16 @@ function colorRandomButton () {
         }
         else if (!random.classList.contains('active')) {
             random.style.cssText = 'white';
+        }
+}
+
+function colorEraseButton () {
+    const erase = document.querySelector('#erase');
+        if (erase.classList.contains('active')) {
+            erase.style.cssText = 'background-color: pink;';
+            erase.style.color = 'white';
+        }
+        else if (!erase.classList.contains('active')) {
+            erase.style.cssText = 'white';
         }
 }
