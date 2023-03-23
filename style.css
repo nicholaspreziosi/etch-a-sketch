@@ -34,10 +34,11 @@
     justify-content: space-between;
     align-items: center;
     margin: 18px;
+    gap: 8px;
 }
 
 #buttons button {
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: "Lucida Handwriting", cursive;
     padding: 12px 16px;
     border: none;
