@@ -2,7 +2,6 @@
     height: 600px; 
     width: 600px;
     display: grid;
-    margin: auto;
 }
 
 #container div {
@@ -23,6 +22,8 @@
     font-size: 48pt;
     font-family: "Lucida Handwriting", cursive;
     color: white;
+    margin-top: 24px;
+    margin-bottom: -24px;
 }
 
 .btn {
@@ -33,7 +34,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 18px;
+    margin: -24px 18px 18px  18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     gap: 8px;
 }
 
@@ -56,13 +59,13 @@ body {
     height: 600px; 
     width: 600px;
     display: grid;
-    margin: auto;
+    margin: 18px auto;
 }
 
 #red {
     background-color: red;
     border-radius: 50px;
-    height: 930px; 
+    height: 900px; 
     width: 800px;
     display: grid;
     margin: auto;
