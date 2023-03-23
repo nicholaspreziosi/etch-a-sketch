@@ -1,5 +1,5 @@
 let size = 16;
-let colorValue = 255;
+let colorvalue = [];
 
 window.onload = function() {
     createSquare();
@@ -35,8 +35,10 @@ function colorDivs() {
                 divs[i].style.cssText = `background-color: ${color};`;
             }
             else if (document.querySelector('#greyscale').classList.contains('active')){
-                console.log(divs[i].style.backgroundColor);
-                let color = greyscale(colorValue);
+                let rgb = window.getComputedStyle(divs[i]).getPropertyValue("background-color");
+                rgb = rgb.replace(/[^\d,]/g, '').split(',');
+                console.log(rgb);
+                let color = greyscale(rgb);
                 divs[i].style.cssText = `background-color: ${color};`;
             }
             else {
@@ -79,10 +81,12 @@ function randomColor () {
 }
 
 function greyscale (colorValue) {
-    if (colorValue >= 0) {
-        colorValue = colorValue - 25.5;
+    for (i = 0; i < 3; i++) {
+        if (colorValue[i] >= 0) {
+            colorValue[i] = colorValue[i] - 26;
+        }
     }
-    return "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
+    return "rgb(" + colorValue[0] + "," + colorValue[1] + "," + colorValue[2] + ")";
 }
 
 function toggleButtons () {
@@ -119,7 +123,6 @@ function colorColorPickerButton () {
     const colorchoice = document.querySelector('#colorchoice');
     if (colorchoice.classList.contains('active')) {
         let color = document.querySelector('#colorpicker').value;
-        console.log(color);
         colorchoice.style.cssText = `background-color: ${color};`;
         colorchoice.style.color = 'white';
     }
@@ -143,7 +146,7 @@ function colorRandomButton () {
 function colorEraseButton () {
     const erase = document.querySelector('#erase');
         if (erase.classList.contains('active')) {
-            erase.style.cssText = 'background-color: pink;';
+            erase.style.cssText = 'background-color: rgb(245,161,157);';
             erase.style.color = 'white';
         }
         else if (!erase.classList.contains('active')) {
