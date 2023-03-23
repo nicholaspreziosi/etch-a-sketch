@@ -6,6 +6,7 @@ window.onload = function() {
     colorDivs();
     reset();
     changeDimensions();
+    colorColorPickerButton();
     updateColorPickerButton();
     toggleButtons();
 };
@@ -85,6 +86,11 @@ function toggleButtons () {
     const colors = document.querySelectorAll('.color');
     for (let i = 0; i < colors.length; i++) {
         colors[i].addEventListener('click', () => {
+            for (let i = 0; i < colors.length; i++) {
+                if (colors[i].classList.contains('active')) {
+                    colors[i].classList.toggle('active');
+                }
+            }
             colors[i].classList.toggle('active');
             colorRandomButton();
             colorColorPickerButton();
@@ -100,7 +106,7 @@ function updateColorPickerButton () {
         if (colorchoice.classList.contains('active')) {
             let color = document.querySelector('#colorpicker').value;
             colorchoice.style.cssText = `background-color: ${color};`;
-            return;
+            colorchoice.style.color = 'white';
         }
     })
 }
