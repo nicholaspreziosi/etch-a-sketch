@@ -93,22 +93,6 @@ function toggleButtons () {
 
 }
 
-//function colorColorPickerButton () {
-    //const colorchoice = document.querySelector('#colorchoice');
-    //colorchoice.addEventListener('click', () => {
-        //if (colorchoice.classList.contains('active')) {
-            //colorchoice.style.cssText = 'background-color: white;';
-          //  return;
-        //}
-       // else if (!colorchoice.classList.contains('active')) {
-            //let color = document.querySelector('#colorpicker').value;
-          //  colorchoice.style.backgroundColor = `${color};`;
-        //    colorchoice.style.color = 'white';
-      //      return;
-    //    }
-  //  })
-//}
-
 function updateColorPickerButton () {
     let colorpicker = document.querySelector('#colorpicker');
     colorpicker.addEventListener('input', () => {
