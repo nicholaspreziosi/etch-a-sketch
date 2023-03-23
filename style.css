@@ -34,10 +34,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: -24px 18px 18px  18px;
+    margin: -24px 24px -18px 24px;
     padding-top: 18px;
     padding-bottom: 18px;
-    gap: 8px;
+    gap: 12px;
     border
 }
 
@@ -68,7 +68,7 @@ body {
     background-color: red;
     border-radius: 50px;
     height: 900px; 
-    width: 800px;
+    width: 1000px;
     display: grid;
     margin: auto;
     filter: drop-shadow(10px 10px 20px black);
@@ -89,4 +89,22 @@ body {
 
 #colordiv {
     display: inline;
+}
+
+#number {
+    font-size: 12pt;
+    font-family: "Lucida Handwriting", cursive;
+}
+
+#alert {
+    font-size: 16pt;
+    font-family: "Lucida Handwriting", cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+#buttons input {
+    border: 2px solid black;
 }

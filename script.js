@@ -72,15 +72,20 @@ function reset() {
  
 function changeDimensions() {
     const dimensions = document.querySelector('#dimensions');
-    dimensions.addEventListener('click', () => { 
-        do {
-            size = prompt("Dimensions?");
+    const number = document.querySelector('#number');
+    const alert = document.querySelector('#alert');
+    dimensions.addEventListener('click', () => {
+        if (number.value < 1 || number.value > 100) {
+            alert.textContent = 'Dimensions must be between 1 and 100!!';
         }
-        while (size > 100 || size < 1);
-        const container = document.querySelector('#container');
-        container.textContent = '';
-        createSquare();
-        colorDivs();
+        else {
+            alert.textContent = '';
+            size = number.value;
+            const container = document.querySelector('#container');
+            container.textContent = '';
+            createSquare();
+            colorDivs();
+        }
     });
 }
 
