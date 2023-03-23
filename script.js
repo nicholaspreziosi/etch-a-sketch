@@ -30,7 +30,7 @@ function colorDivs() {
                 let color = document.querySelector('#colorpicker').value;
                 divs[i].style.cssText = `background-color: ${color};`;
             }
-            else if (document.querySelector('#random').classList.contains('active')) {
+            else if (document.querySelector('#rainbow').classList.contains('active')) {
                 let color = randomColor();
                 divs[i].style.cssText = `background-color: ${color};`;
             }
@@ -99,7 +99,7 @@ function toggleButtons () {
                 }
             }
             colors[i].classList.toggle('active');
-            colorRandomButton();
+            colorRainbowButton();
             colorColorPickerButton();
             colorEraseButton();
         });
@@ -131,15 +131,15 @@ function colorColorPickerButton () {
     }
 }
 
-function colorRandomButton () {
-    const random = document.querySelector('#random');
-        if (random.classList.contains('active')) {
+function colorRainbowButton () {
+    const rainbow = document.querySelector('#rainbow');
+        if (rainbow.classList.contains('active')) {
             let color = randomColor();
-            random.style.cssText = `background-color: ${color};`;
-            random.style.color = 'white';
+            rainbow.style.cssText = `background-color: ${color};`;
+            rainbow.style.color = 'white';
         }
-        else if (!random.classList.contains('active')) {
-            random.style.cssText = 'white';
+        else if (!rainbow.classList.contains('active')) {
+            rainbow.style.cssText = 'white';
         }
 }
 
