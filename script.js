@@ -24,28 +24,40 @@ function createSquare () {
 
 function colorDivs() {
     const divs = document.querySelectorAll('.div');
-    for (let i = 0; i < divs.length; i++) {
-        divs[i].addEventListener('mouseover', () => {
-            if (document.querySelector('#colorchoice').classList.contains('active')) {
-                let color = document.querySelector('#colorpicker').value;
-                divs[i].style.cssText = `background-color: ${color};`;
-            }
-            else if (document.querySelector('#rainbow').classList.contains('active')) {
-                let color = randomColor();
-                divs[i].style.cssText = `background-color: ${color};`;
-            }
-            else if (document.querySelector('#greyscale').classList.contains('active')){
-                let rgb = window.getComputedStyle(divs[i]).getPropertyValue("background-color");
-                rgb = rgb.replace(/[^\d,]/g, '').split(',');
-                console.log(rgb);
-                let color = greyscale(rgb);
-                divs[i].style.cssText = `background-color: ${color};`;
-            }
-            else {
-                divs[i].style.cssText = 'background-color: white';
-            }
-        });
-    };
+
+    let mouseDown = false;
+        for (let i = 0; i < divs.length; i++) {
+            window.addEventListener('mousedown', () => {
+                mouseDown = true;
+                console.log(mouseDown);
+            });
+            window.addEventListener('mouseup', () => {
+                mouseDown = false;
+                console.log(mouseDown);
+            });
+
+            divs[i].addEventListener('mouseover', () => {
+                if (mouseDown) {
+                    if (document.querySelector('#colorchoice').classList.contains('active')) {
+                        let color = document.querySelector('#colorpicker').value;
+                        divs[i].style.cssText = `background-color: ${color};`;
+                    }
+                    else if (document.querySelector('#rainbow').classList.contains('active')) {
+                        let color = randomColor();
+                        divs[i].style.cssText = `background-color: ${color};`;
+                    }
+                    else if (document.querySelector('#greyscale').classList.contains('active')){
+                        let rgb = window.getComputedStyle(divs[i]).getPropertyValue("background-color");
+                        rgb = rgb.replace(/[^\d,]/g, '').split(',');
+                        let color = greyscale(rgb);
+                        divs[i].style.cssText = `background-color: ${color};`;
+                    }
+                    else {
+                        divs[i].style.cssText = 'background-color: white';
+                    }
+                }
+            });
+        };
 }
 
 function reset() {
