@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js"></script>
-</head>
-<body>
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
     <div id="red">
-        <h1 id="title">Etch-a-Sketch</h1>
-        <div id="white">
-            <div id="container"></div>
+      <h1 id="title">Etch-a-Sketch</h1>
+      <div id="white">
+        <div id="container"></div>
+      </div>
+      <div id="buttons">
+        <button class="btn" id="dimensions">Dimensions:</button>
+        <input type="number" id="number" value="16" min="1" max="100" />
+        <div class="btn color active" id="colorchoice">
+          <label id="colorpicker-label" for="colorpicker"> Select Color </label>
+          <input
+            name="colorpicker"
+            type="color"
+            id="colorpicker"
+            value="#000000"
+          />
         </div>
-        <div id="buttons">
-            <button class="btn" id="dimensions">Change Dimensions:</button>
-            <input type="number" id="number" value="16" min="1" max="100">
-            <button class="btn color active" id="colorchoice">Select Color:</button>
-            <input type="color" id="colorpicker" value="#000000">
-            <button class="btn color" id="rainbow">Rainbow</button>
-            <button class="btn color" id="shading">Shading</button>
-            <button class="btn color" id="erase">Erase</button>            
-            <button class="btn" id="reset">Reset</button>
-        </div>
-        <div id="alert">
-        </div>
+
+        <button class="btn color" id="rainbow">Rainbow</button>
+        <button class="btn color" id="shading">Shading</button>
+        <button class="btn color" id="erase">Erase</button>
+        <button class="btn" id="reset">Reset</button>
+      </div>
+      <div id="alert"></div>
     </div>
-</body>
+  </body>
 </html>
