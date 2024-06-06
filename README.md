@@ -5,7 +5,7 @@ Unleash your creativity with this virtual etch-a-sketch app! Change the block si
 <p align="center">
   <a href="https://nicholaspreziosi.github.io/odin-etchasketch/">
 <img 
-    style="width: 40%;"
+    style="max-width: 40%"
     src="./images/etchasketch.jpg" 
     alt="Etch a Sketch Preview">
 </img>
