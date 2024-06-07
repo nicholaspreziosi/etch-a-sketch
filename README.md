@@ -3,10 +3,10 @@
 Unleash your creativity with this virtual etch-a-sketch app! Change the block size and/or color, and use the eraser, shading, and rainbow features as needed.
 
 <p align="center">
-  <a href="https://nicholaspreziosi.github.io/odin-etchasketch/">
-<img 
+  <a href="https://nicholaspreziosi.github.io/etchasketch/">
+<img
     style="max-width: 40%"
-    src="./images/etchasketch.jpg" 
+    src="./images/etchasketch.jpg"
     alt="Etch a Sketch Preview">
 </img>
   </a>
@@ -31,4 +31,4 @@ Unleash your creativity with this virtual etch-a-sketch app! Change the block si
 
 ## Live Demo
 
-View live demo [here](https://nicholaspreziosi.github.io/odin-etchasketch/).
+View live demo [here](https://nicholaspreziosi.github.io/etchasketch/).
